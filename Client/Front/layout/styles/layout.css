@@ -454,3 +454,31 @@ table a, #comments a{background-color:inherit;}
 
 	#header #quickinfo li{display:block; margin-right:0;}
 }
+
+.clear button[type=submit]{
+	float: right;
+  	width: 4%;
+  	padding: 6px;
+  	background: #ddd;
+  	margin-top: 8px;
+  	margin-right: 10px;
+  	color: white;
+  	font-size: 17px;
+  	border: 1px solid grey;
+  	border-left: none; /* Prevent double borders */
+  	cursor: pointer;
+}
+
+.clear input[type=text]{
+	float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 0px;
+    font-size: 17px;
+}
+
+
+.clear button:hover{
+	background: #ccc;
+}

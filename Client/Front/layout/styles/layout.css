@@ -367,6 +367,71 @@ tr, #comments li, #comments input[type="submit"], #comments input[type="reset"]{
 tr:nth-child(even), #comments li:nth-child(even){color:inherit; background-color:#F7F7F7;}
 table a, #comments a{background-color:inherit;}
 
+h1 {
+  text-align: center;
+  font-family: Tahoma, Arial, sans-serif;
+  color: #06D85F;
+  margin: 80px 0;
+}
+
+.over_lay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.over_lay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.pop_up {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 15%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.pop_up p {
+  margin-top: 0;
+  color: #0d0d0d;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.pop_up .closess {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.pop_up .closess:hover {
+  color: #06D85F;
+}
+.pop_up .contentss {
+  max-height: 30%;
+  overflow: auto;
+  color:;
+}
+
+@media screen and (max-width: 700px){
+  .uno{
+    width: 10%;
+  }
+  .pop_up{
+    width: 10%;
+  }
+}
 
 /* ------------------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------ */

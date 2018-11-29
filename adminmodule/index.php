@@ -73,10 +73,10 @@ include 'config.php';
                                 <i class="fas fa-table"></i>Transactions</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                  <li>
-                                    <a href="AcceptTransanction.php">Accepted Transactions</a>
+                                    <a href="ongoing.php">Ongoing Transactions</a>
                                 </li>
                                 <li>
-                                    <a href="Transaction.php">View Transactions</a>
+                                    <a href="transaction.php">View Transactions</a>
                                 </li>
                             </ul>
                             </li>

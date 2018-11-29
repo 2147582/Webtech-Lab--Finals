@@ -70,7 +70,7 @@ include 'add-equipment-action.php'
                         <i class="fas fa-table"></i>Transactions</a>
                         <ul class="list-unstyled navbar__sub-list js-sub-list">
                          <li>
-                            <a href="products.php">Accepted Transactions</a>
+                            <a href="ongoing.php">Ongoing Transactions</a>
                         </li>
                         <li>
                             <a href="Transaction.php">View Transactions</a>

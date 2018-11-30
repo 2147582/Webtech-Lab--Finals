@@ -1,115 +1,101 @@
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 4.8.0
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1    Database: weblab
--- ------------------------------------------------------
--- Server version	5.1.53-community-log
+-- Host: 127.0.0.1
+-- Generation Time: Nov 30, 2018 at 02:44 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `weblab`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `equipment`
 --
 
-DROP TABLE IF EXISTS `equipment`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `equipment` (
-  `equipment_Id` int(11) NOT NULL,
+  `equipment_id` int(11) NOT NULL,
+  `equipment_code` varchar(255) NOT NULL,
   `equipment_name` varchar(45) NOT NULL,
-  `equipmentl_desc` varchar(45) NOT NULL,
-  `equipment_pic` blob NOT NULL,
+  `equipment_desc` varchar(45) NOT NULL,
+  `equipment_pic` varchar(200) NOT NULL,
   `equipment_price` decimal(6,2) NOT NULL,
   `category` varchar(45) NOT NULL,
-  PRIMARY KEY (`equipment_Id`),
-  UNIQUE KEY `service_Id_UNIQUE` (`equipment_Id`)
+  `added_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `equipment`
 --
 
-LOCK TABLES `equipment` WRITE;
-/*!40000 ALTER TABLE `equipment` DISABLE KEYS */;
-/*!40000 ALTER TABLE `equipment` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `equipment` (`equipment_id`, `equipment_code`, `equipment_name`, `equipment_desc`, `equipment_pic`, `equipment_price`, `category`, `added_date`) VALUES
+(1, '001 ', 'Dozers', 'description', 'Dozer, 110 hp.jpg', '2000.00', 'Compaction', '2018-11-30 21:43:28'),
+(2, '002', 'Hammer', 'description', 'Dozer, 110 hp.jpg', '2000.00', 'Power Tools', '2018-11-30 21:43:04');
 
---
--- Table structure for table `transaction`
---
-
-DROP TABLE IF EXISTS `transaction`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `transaction` (
-  `transaction_Id` int(11) NOT NULL,
-  `equipment_Id` int(11) NOT NULL,
-  `date_rented` datetime NOT NULL,
-  `date_returned` datetime NOT NULL,
-  `status` enum('pending','accepted','denied') NOT NULL,
-  PRIMARY KEY (`transaction_Id`),
-  KEY `equipment_Id_idx` (`equipment_Id`),
-  CONSTRAINT `equipment_Id` FOREIGN KEY (`equipment_Id`) REFERENCES `equipment` (`equipment_Id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `transaction`
---
-
-LOCK TABLES `transaction` WRITE;
-/*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
-/*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `user_Id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_Id` int(11) NOT NULL,
   `first_Name` varchar(45) NOT NULL,
   `last_Name` varchar(45) NOT NULL,
   `user_Name` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
-  `status` enum('Activate','Deactivate') DEFAULT NULL,
-  PRIMARY KEY (`user_Id`),
-  UNIQUE KEY `user_Id_UNIQUE` (`user_Id`)
+  `status` enum('Activate','Deactivate') DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users`
+-- Indexes for dumped tables
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
+--
+-- Indexes for table `equipment`
+--
+ALTER TABLE `equipment`
+  ADD PRIMARY KEY (`equipment_id`);
 
 --
--- Dumping routines for database 'weblab'
+-- Indexes for table `users`
 --
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_Id`),
+  ADD UNIQUE KEY `user_Id_UNIQUE` (`user_Id`);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `equipment`
+--
+ALTER TABLE `equipment`
+  MODIFY `equipment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_Id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2018-11-24 21:28:03

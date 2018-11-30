@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 Wheel Loader, 2.0 - 2.4 Cubic Yard
 United Rentals’ articulating wheel loaders offer you powerful, 4-wheel drive performance with easy fingertip control. We have selected these machines to give you maximum productivity with minimum operator fatigue. High visibility, all-weather cabs are roomy and quiet for operator comfort. Automatic transmissions and hydraulic power steering give you smooth, responsive operation with user-friendly control. Turbo-charged diesel engines let you get trucks loaded or trenches filled more efficiently and with fewer cycle times while meeting off-road emission requirements. Forward and rear work lights are standard. Please note that the information below is affected by optional tire size, ballast, and attachments..
 4 Wheel Drive unit
 Forward and rear work lights
 User-friendly controls
+=======
+Wheel Loader, 2.0 - 2.4 Cubic Yard
+United Rentals’ articulating wheel loaders offer you powerful, 4-wheel drive performance with easy fingertip control. We have selected these machines to give you maximum productivity with minimum operator fatigue. High visibility, all-weather cabs are roomy and quiet for operator comfort. Automatic transmissions and hydraulic power steering give you smooth, responsive operation with user-friendly control. Turbo-charged diesel engines let you get trucks loaded or trenches filled more efficiently and with fewer cycle times while meeting off-road emission requirements. Forward and rear work lights are standard. Please note that the information below is affected by optional tire size, ballast, and attachments..
+4 Wheel Drive unit
+Forward and rear work lights
+User-friendly controls
+>>>>>>> ed429409722efc29db2cf89cb1e40f924f7dd805
 Up to 2.4 cubic yard capacities

@@ -1,87 +1,82 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Construction Rental: Login</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
-		<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-		<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-		<link href="css/main.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src=""></script>
-		<script type="text/javascript" src="js/bootstrap.js"></script>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Rental Constructions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script>window.__theme = 'bs4';</script>
+  </head>
+  <body>
 
-	</head>
-		
-	<body>
-		<div class="wrapper row0">
-		  <div id="topbar" class="hoc clear"> 
-		    
-		    <div class="fl_left">
-		      <ul>
-		        <li><i class="fa fa-lg fa-home"></i><a href="index.html">Home</a></li>
-		        <li><a href="pages/packages.html">Packages</a>
-		      </li>
-		      <li><a href="pages/equip.html">Equipments</a></li>
-		      </ul>
-		    </div>
-		    <div class="fl_right">
-		      <ul>
-		        <li><a href="#exampleModal3">Login</a></li>
-		        <li><a href="">Register</a></li>
-		      </ul>
-		    </div>
-		    
-		  </div>
-		</div>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarResponsive">
 
-		<div class="conatiner">
-			<div class="login-container-wrapper clearfix">
-				<ul class="switcher clearfix">
-					<li class="first logo active" data-tab="login">
-							<a>Login</a>			
-					</li>
-					<li class="second logo" data-tab="sign_up">
-							<a>Sign Up</a>	
-					</li>
-				</ul>
-				<div class="tab-content">
-					<div class="" s="tab-pane active" id="login">
-						<form class="form-horizontal login-form">
-							<div class="form-group relative">
-								<input class="form-control input-lg" id="login_username" placeholder="E-mail Address" required="" type="email"> <i class="fa fa-user"></i>
+            <ul class="navbar-nav mr-auto mt-5 mt-lg-0">
+              <li class="nav-item">
+                <span class="glyphicon glyphicon-home"> </span><a class="nav-link" href="#">Home<span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Packages</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Equipments</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+          </div>
+
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Login
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Sign up</a>
+              </li>
+            </ul>
+          </div>
+
+    </nav>
+    <br>
+    <br>
+    <br>
+
+    <!-- Page Content -->
+    <div class="container">
+
+
+      <!-- Jumbotron Header -->
+      <div class="container">
+        <h3 class="display-4">User Login</h3>
+        <hr>
+        <form>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputEmail4">Email</label>
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="user@email.com">
+                </div>
+              </div>
+              <div class="form-row">
+								<div class="form-group col-md-12">
+                  <label for="inputPass">Password</label>
+                  <input type="password" class="form-control" id="inputPass" placeholder="...">
+                </div>
+
+              	<button type="submit" class="btn btn-primary">Create an Account</button>
 							</div>
-							<div class="form-group relative">
-								<input class="form-control input-lg" id="login_password" placeholder="Password" required="" type="password"> <i class="fa fa-lock"></i>
-							</div>
-							<div class="form-group">
-								<button class="btn btn-success btn-lg btn-block" type="submit">Login</button>
-							</div>
-						
-	            			<hr/>
-							<div class="text-center">
-								<label><a href="#">Forgot your password?</a></label>
-							</div>
-						</form>
-					</div>
-					<div class="tab-pane" id="sign_up">
-						<form class="form-horizontal login-form">
-							<div class="form-group relative">
-								<input class="form-control input-lg" id="login_username" placeholder="E-mail Address" required="" type="email"> <i class="fa fa-user"></i>
-							</div>
-							<div class="form-group relative">
-								<input class="form-control input-lg" id="login_password" placeholder="Password" required="" type="password"> <i class="fa fa-lock"></i>
-							</div>
-							<div class="form-group relative">
-								<input class="form-control input-lg" id="login_password" placeholder="Repeat Password" required="" type="password"> <i class="fa fa-lock"></i>
-							</div>
-							<div class="form-group">
-								<button class="btn btn-success btn-lg btn-block" type="submit">Sign Up</button>
-							</div>	
-						</form>
-					</div>
-				</div>
+        </form>
 			</div>
-		</div>
-	</body>
+
+  </body>
 </html>

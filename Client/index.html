@@ -7,12 +7,17 @@
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 <script type="text/javascript" href="js/bootstrap.min.js"></script>
 <script type="text/javascript" href="js/bootstrap.bundle.min.js"></script>
+
+<script src="layout/scripts/jquery.min.js"></script>
+<script src="layout/scripts/jquery.backtotop.js"></script>
+<script src="layout/scripts/jquery.mobilemenu.js"></script>
+<script src="layout/scripts/jquery.flexslider-min.js"></script>
 </head>
 <body id="top">
 
 <div class="wrapper row0">
-  <div id="topbar" class="hoc clear"> 
-    
+  <div id="topbar" class="hoc clear">
+
     <div class="fl_left">
       <ul>
         <li><i class="fa fa-lg fa-home"></i><a href="index.html">Home</a></li>
@@ -23,28 +28,29 @@
     </div>
     <div class="fl_right">
       <ul>
-        <li><a href="#exampleModal3">Login</a></li>
+        <li><a data-toggle="modal" data-href="#login-modal">Login</a></li>
         <li><a href="login.html">Register</a></li>
       </ul>
     </div>
-    
+
   </div>
 </div>
 
 
 <div class="wrapper row1">
-  <header id="header" class="hoc clear"> 
-    
+  <header id="header" class="hoc clear">
     <div id="logo" class="fl_left">
       <h1><a href="index.html">Rental Constructions</a></h1>
       <p>We are here to serve you</p>
     </div>
-    
+
   </header>
 </div>
 
+
+
 <div class="bgded overlay" style="background-image:url('images/demo/backgrounds/truck-logo.jpg');">
-  <div id="pageintro" class="hoc clear"> 
+  <div id="pageintro" class="hoc clear">
     <div class="flexslider basicslider">
       <ul class="slides">
         <li>
@@ -85,19 +91,21 @@
         </li>
       </ul>
     </div>
-  
+
   </div>
 </div>
 <div class="wrapper row3">
-  <main class="hoc container clear"> 
+  <main class="hoc container clear">
     <!-- main body -->
-  
+
     <ul class="nospace group services">
       <li class="one_third first">
         <article>
-          <h6 class="heading font-x3">Featured Packages</h6>
+          <h6 class="heading font-x3">Featured Services</h6>
           <p>Frequently checked packages [&hellip;]</p>
-          <footer><a class="btn" href="pages/packages.html">More</a></footer>
+          <footer>
+            <a class="btn" href="pages/packages.html">More</a>
+          </footer>
         </article>
       </li>
       <li class="one_third">
@@ -146,24 +154,24 @@
         </article>
       </li>
     </ul>
-  
+
     <!-- / main body -->
     <div class="clear"></div>
   </main>
 </div>
 <div class="wrapper coloured overlay bgded" style="background-image:url('images/demo/backgrounds/truck-logo.jpg');">
   <div class="hoc container clear">
-    <div id="testimonial"> 
-    
+    <div id="testimonial">
+
       <blockquote>Here to serve you</blockquote>
-      <strong>Someone</strong> <em>Owner, Rental Constructions</em> 
-    
+      <strong>Someone</strong> <em>Owner, Rental Constructions</em>
+
     </div>
   </div>
 </div>
 <div class="wrapper row3">
-  <section class="hoc container clear"> 
-  
+  <section class="hoc container clear">
+
     <div class="sectiontitle center">
       <h6 class="heading">Team</h6>
       <p>Something about them.</p>
@@ -200,12 +208,12 @@
         </div>
       </article>
     </div>
-  
+
   </section>
 </div>
 <div class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/04.png');">
-  <section class="hoc container clear"> 
-    
+  <section class="hoc container clear">
+
     <ul class="nospace group center">
       <li class="one_quarter first">
         <h6 class="heading font-x3">Our Services</h6>
@@ -214,12 +222,12 @@
       <li class="one_quarter"><i class="block btmspace-10 fa fa-4x fa-truck"></i> Service</li>
       <li class="one_quarter"><i class="block btmspace-10 fa fa-4x fa-truck"></i> Service</li>
     </ul>
-  
+
   </section>
 </div>
 <div class="wrapper row4">
-  <footer id="footer" class="hoc clear"> 
-  
+  <footer id="footer" class="hoc clear">
+
     <div class="one_third">
        <h6 class="heading">Information</h6>
       <ul class="nospace btmspace-30 linklist contact">
@@ -236,14 +244,11 @@
         <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
       </ul>
     </div>
-  
   </footer>
 </div>
 <div class="wrapper row5">
-  <div id="copyright" class="hoc clear"> 
-  
-    <p class="fl_left">Copyright &copy; - All Rights Reserved</p>
-  
+  <div id="copyright" class="hoc clear">
+    <p class="fl_left">Copyright &copy; - All Rights Reserved </p>
   </div>
 </div>
 
@@ -251,12 +256,39 @@
 
 <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
 
+
+<!-- Login Modal -->
+<div class="modal fade show" role="dialog" id="login-modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal login-form">
+          <div class="form-group relative">
+            <label> E-mail: </label>
+            <input class="form-control input-lg" id="login_username" placeholder="E-mail Address" required="" type="email">
+          </div>
+          <div class="form-group relative">
+            <label> Password: </label>
+            <input class="form-control input-lg" id="login_password" placeholder="Password" required="" type="password">
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-primary">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
-  $("#exampleModal3").modal("show")
+  $('#login-modal').modal("toggle")
 </script>
-<script src="layout/scripts/jquery.min.js"></script>
-<script src="layout/scripts/jquery.backtotop.js"></script>
-<script src="layout/scripts/jquery.mobilemenu.js"></script>
-<script src="layout/scripts/jquery.flexslider-min.js"></script>
+
 </body>
 </html>

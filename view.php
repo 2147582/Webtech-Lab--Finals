@@ -41,6 +41,7 @@ include 'add-equipment-action.php';
 
 </head>
 
+
 <body class="animsition">
   <div class="page-wrapper">
    <!-- MENU SIDEBAR-->
@@ -70,13 +71,19 @@ include 'add-equipment-action.php';
                 <li>
                 <a class="js-arrow" href="#">                         
                         <i class="fas fa-table"></i>Transactions</a>
-                        <ul class="list-unstyled navbar__sub-list js-sub-list">
-                         <li>
-                            <a href="products.php">Accepted Transactions</a>
-                        </li>
-                        <li>
-                            <a href="Add.php">View Transactions</a>
-                        </li>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                 <li>
+                                    <a href="ctransaction.php">Completed Transactions</a>
+                                </li>
+                                <li>
+                                    <a href="otransaction.php">Ongoing Transactions</a>
+                                </li>
+                                <li>
+                                    <a href="ptransaction.php">Pending Transactions</a>
+                                </li>
+                                <li>
+                                    <a href="dtransaction.php">Denied Transactions</a>
+                                </li>
                     </ul>
                     </li>
                     <li>
@@ -122,9 +129,12 @@ include 'add-equipment-action.php';
                                                 <th>Name</th>
                                                 <th>Description</th>
                                                 <th>Category</th>
+                                                <th>Equipment Quantity</th>
+                                                <th>Available Quantity</th>
                                                 <th>Price</th>
                                                 <th>Added Date</th>
                                                 <th>Modify</th>
+                                                <th>Image</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -149,9 +159,13 @@ include 'add-equipment-action.php';
                                                                         <td>'.$row["equipment_name"].'</td>
                                                                         <td>'.$row["equipment_desc"].'</td>
                                                                         <td>'.$row["category"].'</td>
+                                                                        <td>'.$row["equipment_quantity"].'</td>
+                                                                        <td>'.$row["0"].'</td>
                                                                         <td>'.$row["equipment_price"].'</td>
                                                                         <td>'.$row["added_date"].'</td>
-                                                                        <td>'.'<a href=\'edit-equipment.php?edit_id=' .$row['equipment_id'].'\'>Edit</a>'.'</td>
+                                                                        <td>'.'<a href=\'edit-equipment.php?edit_id=' .$row['equipment_id'].'\'>View and Edit</a>'.'</td>
+                                                                        <td>'.'<img src=\'stored/' .$row['equipment_pic'].'\'>'.'</td>
+
                                                                         </tr>
                                                                         ';
                                                                     }
@@ -159,9 +173,13 @@ include 'add-equipment-action.php';
                                                                 ?>
                                                             </tbody>
                                                         </table>
-                                                        
+                                        
+
                                     </table>
+
+                                    
                                 </div>
+                                
                                 <!-- END DATA TABLE -->
                             </div>
                 </div>
@@ -176,6 +194,57 @@ include 'add-equipment-action.php';
 </div>
 
 
+	<!-- modal small -->
+<!--   
+                        <?php
+                        $con=mysqli_connect ("localhost", "root", "","weblab");
+                        mysqli_select_db($con,"weblab");
+                        ?>
+                        <?php 
+                        $res=mysqli_query($con,"select * from equipment");
+                        while($row=mysqli_fetch_array($res))
+                        {
+                            ?>
+                              <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-sm" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="smallmodalLabel"></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+                        <div class="modal-body">
+							<p>
+                            <h2><?php echo $row["equipment_name"]; ?></h2>
+
+                            <img src="stored/<?php echo $row["equipment_pic"]; ?>" alt="">
+
+							
+							</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+							<button type="button" class="btn btn-primary">Confirm</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+                            <?php 
+                               }
+
+
+                            ?>
+                     
+                       
+					 -->
+			<!-- end modal small -->
+
+
+
+
+
 <div class="row">
   <div class="col-md-12">
     <div class="copyright">
@@ -186,6 +255,8 @@ include 'add-equipment-action.php';
 </div>
 </div>
 </div>
+
+
 
 
 <!-- END MAIN CONTENT-->

@@ -17,8 +17,10 @@ if (isset($_POST['btn-update'])) {
     $category = $_POST['category'];
     $price = $_POST['price'];
     $desc = $_POST['desc'];
+    $qty = $_POST['qty'];
+    $pic = $_POST['pic'];
 
-    $update = "UPDATE equipment SET equipment_code = '$icode' , equipment_name = '$ename', category ='$category', equipment_desc='$desc', equipment_price ='$price' where equipment_id=". $_GET['edit_id'];
+    $update = "UPDATE equipment SET equipment_code = '$icode' , equipment_name = '$ename', category ='$category', equipment_desc='$desc', equipment_price ='$price', equipment_quantity='$qty' where equipment_id=". $_GET['edit_id'];
     $up = mysqli_query($con, $update);
     if (!isset($sql)){
         die ("Error $sql" .mysqli_connect());
@@ -71,7 +73,7 @@ if (isset($_POST['btn-update'])) {
 <body class="animsition">
     <div class="page-wrapper">
 
-         <!-- MENU SIDEBAR-->
+     <!-- MENU SIDEBAR-->
    <aside class="menu-sidebar d-none d-lg-block">
 
 <!-- WEBLAB LOGO -->
@@ -98,13 +100,19 @@ if (isset($_POST['btn-update'])) {
                 <li>
                 <a class="js-arrow" href="#">                         
                         <i class="fas fa-table"></i>Transactions</a>
-                        <ul class="list-unstyled navbar__sub-list js-sub-list">
-                         <li>
-                            <a href="products.php">Accepted Transactions</a>
-                        </li>
-                        <li>
-                            <a href="Add.php">View Transactions</a>
-                        </li>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                 <li>
+                                    <a href="ctransaction.php">Completed Transactions</a>
+                                </li>
+                                <li>
+                                    <a href="otransaction.php">Ongoing Transactions</a>
+                                </li>
+                                <li>
+                                    <a href="ptransaction.php">Pending Transactions</a>
+                                </li>
+                                <li>
+                                    <a href="dtransaction.php">Denied Transactions</a>
+                                </li>
                     </ul>
                     </li>
                     <li>
@@ -124,7 +132,6 @@ if (isset($_POST['btn-update'])) {
                 </div>
             </aside>
           <!-- END MENU SIDEBAR-->
-
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
@@ -164,23 +171,37 @@ if (isset($_POST['btn-update'])) {
                                                    <form method="post">
                                                      <div class="row form-group">
                                                        <div class="col-9">
+                                                       <img name="pic" src="stored/<?php echo $row["equipment_pic"]; ?>" alt="">       
+                                                       <br>
+                                                       <br>
+                                                       <label> Code </label>
                                                          <input type="text" class="form-control" name="icode" value="<?php echo $row['equipment_code']; ?>">
                                                           <br>
+                                                       <label> Name </label>
                                                           <input type="text" class="form-control" name="ename" value="<?php echo $row['equipment_name']; ?>">
                                                           <br>
+                                                       <label> Description </label>
                                                           <input type="text" class="form-control" name="desc" value="<?php echo $row['equipment_desc']; ?>">
                                                           <br>
+                                                       <label> Category </label>
                                                           <select name="category" class="form-control" name="category"  data-parsley-required="true">
                                                             <option value="<?php echo $row['category']; ?>"><?php echo $row['category']; ?></option> 
-                                                                        <option value="Earth Moving">Earth Moving</option> 
-                                                                        <option value="Compaction"> Compaction</option> 
-                                                                        <option value="Power Tools"> Power Tools</option> 
-                                                                        <option value="Returned"> Returned</option> 
-                                                                        <option value="Misc.Equipment"> Misc.Equipment</option> 
+                                                            <option value="Wheel Loaders">Wheel Loaders</option> 
+                                                            <option value="Loader Backhoes"> Loader Backhoes</option> 
+                                                            <option value="Dozers"> Dozers</option> 
+                                                            <option value="Skid Steers"> Skid Steers</option> 
+                                                            <option value="Cranes"> Cranes</option> 
+                                                            <option value="Compactors"> Compactors</option> 
+                                                            <option value="Excavators"> Excavators</option> 
+                                                            <option value="Asphalt Paving"> Asphalt Paving</option> 
                                                                 </select>   
                                                           <br>
+                                                       <label> Quantity </label>
+                                                          <input type="number" class="form-control" name="qty" value="<?php echo $row['equipment_quantity']; ?>">
+                                                          <br>
+                                                       <label> Price </label>
                                                           <input type="number" class="form-control" name="price" value="<?php echo $row['equipment_price']; ?>">
-                                                            <br>
+                                                            <br>                  
                                                             <button type="submit" name="btn-update" id="btn-update" class="btn btn-primary">
                                                             Update</button> 
 

@@ -43,8 +43,8 @@ include 'add-equipment-action.php';
 
 <body class="animsition">
   <div class="page-wrapper">
-   <!-- MENU SIDEBAR-->
-   <aside class="menu-sidebar d-none d-lg-block">
+    <!-- MENU SIDEBAR-->
+    <aside class="menu-sidebar d-none d-lg-block">
 
 <!-- WEBLAB LOGO -->
     <div class="logo">
@@ -70,13 +70,19 @@ include 'add-equipment-action.php';
                 <li>
                 <a class="js-arrow" href="#">                         
                         <i class="fas fa-table"></i>Transactions</a>
-                        <ul class="list-unstyled navbar__sub-list js-sub-list">
-                         <li>
-                            <a href="products.php">Accepted Transactions</a>
-                        </li>
-                        <li>
-                            <a href="Add.php">View Transactions</a>
-                        </li>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                 <li>
+                                    <a href="ctransaction.php">Completed Transactions</a>
+                                </li>
+                                <li>
+                                    <a href="otransaction.php">Ongoing Transactions</a>
+                                </li>
+                                <li>
+                                    <a href="ptransaction.php">Pending Transactions</a>
+                                </li>
+                                <li>
+                                    <a href="dtransaction.php">Denied Transactions</a>
+                                </li>
                     </ul>
                     </li>
                     <li>
@@ -135,11 +141,14 @@ include 'add-equipment-action.php';
                                <br>
                                <select name="category" class="form-control" data-parsley-required="true">
                                <option value="0">Choose Category</option> 
-                                        <option value="Earth Moving">Earth Moving</option> 
-                                        <option value="Compaction"> Compaction</option> 
-                                        <option value="Power Tools"> Power Tools</option> 
-                                        <option value="Returned"> Returned</option> 
-                                        <option value="Misc.Equipment"> Misc.Equipment</option> 
+                                        <option value="Wheel Loaders">Wheel Loaders</option> 
+                                        <option value="Loader Backhoes"> Loader Backhoes</option> 
+                                        <option value="Dozers"> Dozers</option> 
+                                        <option value="Skid Steers"> Skid Steers</option> 
+                                        <option value="Cranes"> Cranes</option> 
+                                        <option value="Compactors"> Compactors</option> 
+                                        <option value="Excavators"> Excavators</option> 
+                                        <option value="Asphalt Paving"> Asphalt Paving</option> 
                                 </select>
                                 <br>
                                 <div class="col col-md-12">
@@ -148,11 +157,25 @@ include 'add-equipment-action.php';
                                                             <i class="fa fa-rub"></i>
                                                         </div>
                                                         <input type="number" id="input3-group1" name="price" required placeholder="Enter Price" class="form-control">
-                                                        <div class="input-group-addon">.00</div>
+                                                        <div class="input-group-addon">.00
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <br>
+                                   <div class="col col-md-12">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-rub"></i>
+                                                        </div>
+                                                        <input type="number" id="input3-group1" name="qty" required placeholder="Enter Quantity" class="form-control">
+                                                        <div class="input-group-addon">.00
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                
                               <div class="col col-md-12">
+                              <br>
                                   <input type="hidden" name="size" value="1000000">
                                   <div class="input-group">
                                   <input type="file" name="image">

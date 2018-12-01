@@ -1,0 +1,39 @@
+<center>
+<?php
+include 'config.php';
+  session_start();
+
+  if(isset($_POST['upload']))
+  {
+
+    $target = "stored/".basename($_FILES['image']['name']);
+
+    $image = $_FILES['image']['name'];
+    $desc = $_POST['desc'];
+    $icode = $_POST['icode'];
+    $ename = $_POST['ename'];
+    $category = $_POST['category'];
+    $price = $_POST['price'];
+
+    $sql = "INSERT INTO `equipment`(`equipment_code`, `equipment_name`, `category`, `equipment_price`, `equipment_pic`, `equipment_desc`) VALUES ('$icode','$ename','$category','$price','$image','$desc')";
+    $result = mysqli_query($con,$sql);
+
+    if(move_uploaded_file($_FILES['image']['tmp_name'], $target)){
+      $msg = "Image Uploaded Successfully!";
+    } else{
+      $msg = "Image Uploaded Failed!";
+    }
+
+    if($result) {
+echo 'Equipment Added';
+    }else{
+      echo 'Equipment, Not Added';
+    }
+
+
+    header("refresh:1;url=add.php");
+
+    }
+?>
+
+</center>

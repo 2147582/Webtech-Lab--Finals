@@ -124,14 +124,14 @@ include 'config.php';
                                     <table class="table table-data2">
                                         <thead>
                                             <tr>
-                                                <th>Date Rented</th>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
                                                 <th>Date Returned</th>
                                                 <th>Equipment Name</th>
                                                 <th>Quantity Rented</th>
                                                 <th>Price</th>
                                                 <th>Status</th>
-                                                <th>Complete</th>
-                                                <th>Deny</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -144,7 +144,7 @@ include 'config.php';
                                                                 }
                                                                 $calc = $perpage * $page;
                                                                 $start = $calc - $perpage;
-                                                                $sql = "SELECT transaction_id, date_rented,date_returned,quantity_rented,status,equipment_name,equipment_price FROM transaction join equipment on transaction.equipment_id=equipment.equipment_id where status = 'pending'";
+                                                                $sql = "SELECT transaction_id, start_date,end_date,date_returned,quantity_rented,status,equipment_name,equipment_price FROM transaction join equipment on transaction.equipment_id=equipment.equipment_id where status = 'pending'";
                                                                 $result = mysqli_query($con,$sql);
                                                                 
                                                                 $rows = mysqli_num_rows($result);
@@ -153,7 +153,8 @@ include 'config.php';
                                                                     while($row = mysqli_fetch_array($result)){
                                                                         echo '
                                                                         <tr>
-                                                                        <td>'.$row["date_rented"].'</td>
+                                                                        <td>'.$row["start_date"].'</td>
+                                                                        <td>'.$row["end_date"].'</td>
                                                                         <td>'.$row["date_returned"].'</td>
                                                                         <td>'.$row["equipment_name"].'</td>
                                                                         <td>'.$row["quantity_rented"].'</td>

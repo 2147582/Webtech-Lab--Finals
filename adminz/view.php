@@ -1,8 +1,8 @@
 <?php
-include 'config.php';
-  session_start();
-  
+include 'add-equipment-action.php'; 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +40,7 @@ include 'config.php';
   <link href="css/theme.css" rel="stylesheet" media="all">
 
 </head>
+
 
 <body class="animsition">
   <div class="page-wrapper">
@@ -119,24 +120,26 @@ include 'config.php';
                 <div class="container-fluid">
                 <div class="col-md-12">
                                 <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">Transactions</h3>
+                                <h3 class="title-5 m-b-35">data table</h3>
                                 <div class="table-responsive table-responsive-data2">
                                     <table class="table table-data2">
                                         <thead>
                                             <tr>
-                                                <th>Date Rented</th>
-                                                <th>Date Returned</th>
-                                                <th>Equipment Name</th>
+                                                <th>Code</th>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Category</th>
+                                                <th>Equipment Quantity</th>
+                                                <th>Available Quantity</th>
                                                 <th>Price</th>
-                                                <th>Status</th>
-                                                <th>Complete</th>
-                                                <th>Deny</th>
+                                                <th>Added Date</th>
+                                                <th>Modify</th>
+                                                <th>Image</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                                                 <?php
                                                                 $perpage = 10;
-                                                                
                                                                 if(isset($_GET["page"])){
                                                                     $page = intval($_GET["page"]);
                                                                 }else {
@@ -144,35 +147,39 @@ include 'config.php';
                                                                 }
                                                                 $calc = $perpage * $page;
                                                                 $start = $calc - $perpage;
-                                                                $sql = "SELECT transaction_id, date_rented,date_returned,status,equipment_name,equipment_price FROM transaction join equipment on transaction.equipment_id=equipment.equipment_id where status = 'ongoing'";
+                                                                $sql = "SELECT * FROM equipment LIMIT $start, $perpage";
                                                                 $result = mysqli_query($con,$sql);
-                                                                
                                                                 $rows = mysqli_num_rows($result);
                                                                 if($rows){
                                                                     $i = 0;
                                                                     while($row = mysqli_fetch_array($result)){
-                                                                       
                                                                         echo '
                                                                         <tr>
-                                                                        <td>'.$row["start_date"].'</td>
-                                                                        <td>'.$row["end_date"].'</td>
-                                                                        <td>'.$row["date_returned"].'</td>
+                                                                        <td>'.$row["equipment_code"].'</td>
                                                                         <td>'.$row["equipment_name"].'</td>
+                                                                        <td>'.$row["equipment_desc"].'</td>
+                                                                        <td>'.$row["category"].'</td>
+                                                                        <td>'.$row["equipment_quantity"].'</td>
+                                                                        <td>'.$row["0"].'</td>
                                                                         <td>'.$row["equipment_price"].'</td>
-                                                                        <td>'.$row["status"].'</td>
-                                                                        <td>'.'<button type="submit" name="complete" id="complete" class="btn btn-success btn-flat">Complete</button>'.'</td>
-                                                                        <td>'.'<button type="submit" name="deny" id="deny" class="btn btn-danger btn-flat">Deny</button>'.'</td>
+                                                                        <td>'.$row["added_date"].'</td>
+                                                                        <td>'.'<a href=\'edit-equipment.php?edit_id=' .$row['equipment_id'].'\'>View and Edit</a>'.'</td>
+                                                                        <td>'.'<img src=\'stored/' .$row['equipment_pic'].'\'>'.'</td>
+
                                                                         </tr>
                                                                         ';
                                                                     }
                                                                 }
-                                                                
                                                                 ?>
                                                             </tbody>
                                                         </table>
-                                                        
+                                        
+
                                     </table>
+
+                                    
                                 </div>
+                                
                                 <!-- END DATA TABLE -->
                             </div>
                 </div>
@@ -187,6 +194,57 @@ include 'config.php';
 </div>
 
 
+	<!-- modal small -->
+<!--   
+                        <?php
+                        $con=mysqli_connect ("localhost", "root", "","weblab");
+                        mysqli_select_db($con,"weblab");
+                        ?>
+                        <?php 
+                        $res=mysqli_query($con,"select * from equipment");
+                        while($row=mysqli_fetch_array($res))
+                        {
+                            ?>
+                              <div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-sm" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="smallmodalLabel"></h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+                        <div class="modal-body">
+							<p>
+                            <h2><?php echo $row["equipment_name"]; ?></h2>
+
+                            <img src="stored/<?php echo $row["equipment_pic"]; ?>" alt="">
+
+							
+							</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+							<button type="button" class="btn btn-primary">Confirm</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+                            <?php 
+                               }
+
+
+                            ?>
+                     
+                       
+					 -->
+			<!-- end modal small -->
+
+
+
+
+
 <div class="row">
   <div class="col-md-12">
     <div class="copyright">
@@ -197,6 +255,8 @@ include 'config.php';
 </div>
 </div>
 </div>
+
+
 
 
 <!-- END MAIN CONTENT-->

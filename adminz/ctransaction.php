@@ -119,7 +119,7 @@ include 'config.php';
                 <div class="container-fluid">
                 <div class="col-md-12">
                                 <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">Transactions</h3>
+                                <h3 class="title-5 m-b-35"> Completed Transactions</h3>
                                 <div class="table-responsive table-responsive-data2">
                                     <table class="table table-data2">
                                         <thead>
@@ -150,7 +150,8 @@ include 'config.php';
                                                                     while($row = mysqli_fetch_array($result)){
                                                                         echo '
                                                                         <tr>
-                                                                        <td>'.$row["date_rented"].'</td>
+                                                                        <td>'.$row["start_date"].'</td>
+                                                                        <td>'.$row["end_date"].'</td>
                                                                         <td>'.$row["date_returned"].'</td>
                                                                         <td>'.$row["equipment_name"].'</td>
                                                                         <td>'.$row["equipment_price"].'</td>

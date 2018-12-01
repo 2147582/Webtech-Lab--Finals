@@ -141,7 +141,7 @@ include 'config.php';
                                                                 }
                                                                 $calc = $perpage * $page;
                                                                 $start = $calc - $perpage;
-                                                                $sql = "SELECT transaction_id, date_rented,date_returned,status,equipment_name,equipment_price FROM transaction join equipment on transaction.equipment_id=equipment.equipment_id where status = 'completed'";
+                                                                $sql = "SELECT transaction_id, start_date,end_date,date_returned,status,equipment_name,equipment_price FROM transaction join equipment on transaction.equipment_id=equipment.equipment_id where status = 'completed'";
                                                                 $result = mysqli_query($con,$sql);
                                                                 
                                                                 $rows = mysqli_num_rows($result);

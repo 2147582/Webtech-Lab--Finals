@@ -8,16 +8,20 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
+
 
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarResponsive">
 
-            <ul class="navbar-nav mr-auto mt-5 mt-lg-0">
+            <ul class="navbar-nav mr-auto mt-4 mt-lg-0">
               <li class="nav-item">
-                <span class="glyphicon glyphicon-home"> </span><a class="nav-link" href="home-page.html">Home<span class="sr-only">(current)</span>
+                <a class="nav-link" href="home-page.html">Home<span class="sr-only">(current)</span>
                 </a>
               </li>
               <li class="nav-item">
@@ -34,8 +38,7 @@
 
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="login.html">Login
-                </a>
+                <a data-toggle="modal" href="#myModal">Login</a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="register.html">Sign up</a>
@@ -69,18 +72,28 @@
               </div>
             </div>
               <div class="form-row">
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                   <label for="inputEmail4">Email</label>
                   <input type="email" class="form-control" id="inputEmail4" placeholder="user@email.com">
                 </div>
-                <div class="form-group col-md-6">
+                <div class="form-group col-md-4">
                   <label for="inputPassword4">Create Password</label>
                   <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
                 </div>
+                <div class="form-group col-md-4">
+                  <label for="inputPassword4">Confirm Password</label>
+                  <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                </div>
               </div>
-              <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="...">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputAddress">Address</label>
+                  <input type="text" class="form-control" id="inputAddress" placeholder="...">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputConNum">Contact Number</label>
+                  <input type="number" class="form-control" id="imputConCum" placeholder="09...">
+                </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-3">
@@ -106,16 +119,63 @@
                 </div>
                 <div class="form-group col-md-3">
                   <label for="inputZip">Zip Code</label>
-                  <input type="text" class="form-control" id="inputZip">
+                  <input type="number" class="form-control" id="inputZip">
                 </div>
               </div>
-
-              <button type="submit" class="btn btn-primary">Create an Account</button>
+              <button type="submit" class="btn btn-primary" value="clientAccount">Create an Account</button>
         </form>
 
 
 
       </div>
+
+
+      <!-- Login Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="heading-left"> Login</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body" style="padding:40px 50px;">
+              <form role="form">
+                <div class="form-group">
+                  <label for="email"><span class="glyphicon glyphicon-user"></span> Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="password"><span class="glyphicon glyphicon-eye-open"></span>Password</label>
+                  <input type="password" class="form-control" id="psswrd" placeholder="Enter password">
+                </div>
+                  <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+
+              <span class="d-flex p-2">Not a member? <a href="register.html"> Sign Up</a> </span>
+            </div>
+          </div>
+          </div>
+      </div>
+
+
+      <style>
+          .modal-header, h4, .close {
+              background-color: #0c0c0c;
+              color:white !important;
+              text-align: left;
+              font-size: 30px;
+          }
+          .modal-footer {
+              background-color: #f9f9f9;
+          }
+
+      </style>
+
 
   </body>
 </html>

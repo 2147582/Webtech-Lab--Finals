@@ -12,7 +12,35 @@
 <head>
 
     <title>Search</title>
-
+    <style>
+        #search {
+            border-collapse:collapse;
+            width: 100%;
+        }
+        
+        #search td, #search th{
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        
+        #search tr:nth-child(even){background-color: #f2f2f2;}
+        
+        #search tr:hover {background-color: #ddd;}
+        
+        #search th{
+            padding-top:12px;
+            padding-bottom: 12px;
+            text-align: center;
+            background-color: #12345678;
+            color: white;     
+        }
+        
+        #key_word tr, #key_word th{
+            background-color: #ddd;
+            border: 1px solid #ddd;
+        }
+        
+    </style>
 </head>
 
 <body>
@@ -32,11 +60,11 @@
  
 
     <form name="frmSearch" method="get" action="index.jsp">
-        <table width="599" border="1">
+        <table id="key_word" width="599" border="1">
 
             <tr>
 
-                <th>Keyword
+                <th>
 
                 <input name="txtKeyword" type="text" id="txtKeyword" value="<%=keyword%>">
 
@@ -76,7 +104,7 @@
 
             %>
 
-            <table width="600" border="1">
+            <table id="search" width="600" border="1">
 
                 <tr>
 

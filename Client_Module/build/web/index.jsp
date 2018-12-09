@@ -42,12 +42,21 @@
           </div>
 
             <ul class="navbar-nav ml-2">
+                <% String username = (String)
+                   session.getAttribute("user");
+                if (username == null){
+                %>
               <li class="nav-item">
                 <a data-toggle="modal" href="#myModal">Login</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="registration.jsp">Sign up</a>
               </li>
+              <%
+                }else{
+              %>
+                  <li> <%=username%> (<a href="logout.jsp"> Logout </a>) </li>. 
+               <% }%>
             </ul>
         </div>
 

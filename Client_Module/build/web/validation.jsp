@@ -21,7 +21,6 @@ determine if the user have already registered.
     <body>
         <%
         
-   
         String uname = request.getParameter("Uname");
         String pass = request.getParameter("psw");   
         String query;
@@ -34,6 +33,7 @@ determine if the user have already registered.
             
             if(rs.next()){
                 out.println("Welcome" + " " + uname);
+                response.sendRedirect("index.jsp");
             }else{
                 out.println("Please register first!");
             }

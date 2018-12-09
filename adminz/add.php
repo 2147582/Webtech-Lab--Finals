@@ -43,8 +43,8 @@ include 'add-equipment-action.php';
 
 <body class="animsition">
   <div class="page-wrapper">
-    <!-- MENU SIDEBAR-->
-    <aside class="menu-sidebar d-none d-lg-block">
+<!-- MENU SIDEBAR-->
+<aside class="menu-sidebar d-none d-lg-block">
 
 <!-- WEBLAB LOGO -->
     <div class="logo">
@@ -84,19 +84,7 @@ include 'add-equipment-action.php';
                                     <a href="dtransaction.php">Denied Transactions</a>
                                 </li>
                     </ul>
-                    </li>
-                    <li>
-                    <a class="js-arrow" href="#">                                
-                            <i class="far fa-check-square"></i>User Management</a>
-                           <ul class="list-unstyled navbar__sub-list js-sub-list">
-                         <li>
-                            <a href="products.php">Registered Accounts</a>
-                        </li>
-                        <li>
-                            <a href="Add.php">Disabled Accounts</a>
-                        </li>
-                    </ul>
-                        
+                    </li>   
                         </ul>
                     </nav>
                 </div>

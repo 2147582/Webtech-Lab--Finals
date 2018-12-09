@@ -44,33 +44,33 @@ include 'config.php';
 <body class="animsition">
     <div class="page-wrapper">
 
-        <!-- MENU SIDEBAR-->
-        <aside class="menu-sidebar d-none d-lg-block">
+       <!-- MENU SIDEBAR-->
+   <aside class="menu-sidebar d-none d-lg-block">
 
-        <!-- WEBLAB LOGO -->
-            <div class="logo">
-                <a href="index.php">
-                    <!-- <img src="images/icon/logo.png" alt="Cool Admin" /> -->
-                </a>
-            </div>
-            <div class="menu-sidebar__content js-scrollbar1">
-                <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
+<!-- WEBLAB LOGO -->
+    <div class="logo">
+        <a href="index.php">
+            <!-- <img src="images/icon/logo.png" alt="Cool Admin" /> -->
+        </a>
+    </div>
+    <div class="menu-sidebar__content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+                <li>
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-chart-bar"></i>Services</a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                         <li>
+                            <a href="View.php">View Equipments</a>
+                        </li>
                         <li>
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-chart-bar"></i>Services</a>
-                                <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                 <li>
-                                    <a href="products.php">Post Equipments</a>
-                                </li>
-                                <li>
-                                    <a href="Add.php">View Equipments</a>
-                                </li>
-                            </ul>
-                        </li>               
-                        <li>
-                        <a class="js-arrow" href="#">                         
-                                <i class="fas fa-table"></i>Transactions</a>
+                            <a href="Add.php">Post Equipments</a>
+                        </li>
+                    </ul>
+                </li>               
+                <li>
+                <a class="js-arrow" href="#">                         
+                        <i class="fas fa-table"></i>Transactions</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                  <li>
                                     <a href="ctransaction.php">Completed Transactions</a>
@@ -84,25 +84,13 @@ include 'config.php';
                                 <li>
                                     <a href="dtransaction.php">Denied Transactions</a>
                                 </li>
-                            </ul>
-                            </li>
-                            <li>
-                            <a class="js-arrow" href="#">                                
-                                    <i class="far fa-check-square"></i>User Management</a>
-                                   <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                 <li>
-                                    <a href="products.php">Registered Accounts</a>
-                                </li>
-                                <li>
-                                    <a href="Add.php">Disabled Accounts</a>
-                                </li>
-                            </ul>
-                                
-                                </ul>
-                            </nav>
-                        </div>
-                    </aside>
-                    <!-- END MENU SIDEBAR-->
+                    </ul>
+                    </li>   
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+          <!-- END MENU SIDEBAR-->
                     <!-- PAGE CONTAINER-->
                     <div class="page-container">
                         <!-- HEADER DESKTOP-->

@@ -85,19 +85,7 @@ include 'add-equipment-action.php';
                                     <a href="dtransaction.php">Denied Transactions</a>
                                 </li>
                     </ul>
-                    </li>
-                    <li>
-                    <a class="js-arrow" href="#">                                
-                            <i class="far fa-check-square"></i>User Management</a>
-                           <ul class="list-unstyled navbar__sub-list js-sub-list">
-                         <li>
-                            <a href="products.php">Registered Accounts</a>
-                        </li>
-                        <li>
-                            <a href="Add.php">Disabled Accounts</a>
-                        </li>
-                    </ul>
-                        
+                    </li>   
                         </ul>
                     </nav>
                 </div>

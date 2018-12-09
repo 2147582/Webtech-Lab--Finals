@@ -43,8 +43,8 @@ include 'config.php';
 
 <body class="animsition">
   <div class="page-wrapper">
-   <!-- MENU SIDEBAR-->
-   <aside class="menu-sidebar d-none d-lg-block">
+ <!-- MENU SIDEBAR-->
+ <aside class="menu-sidebar d-none d-lg-block">
 
 <!-- WEBLAB LOGO -->
     <div class="logo">
@@ -84,25 +84,12 @@ include 'config.php';
                                     <a href="dtransaction.php">Denied Transactions</a>
                                 </li>
                     </ul>
-                    </li>
-                    <li>
-                    <a class="js-arrow" href="#">                                
-                            <i class="far fa-check-square"></i>User Management</a>
-                           <ul class="list-unstyled navbar__sub-list js-sub-list">
-                         <li>
-                            <a href="products.php">Registered Accounts</a>
-                        </li>
-                        <li>
-                            <a href="Add.php">Disabled Accounts</a>
-                        </li>
-                    </ul>
-                        
+                    </li>   
                         </ul>
                     </nav>
                 </div>
             </aside>
           <!-- END MENU SIDEBAR-->
-
           <!-- PAGE CONTAINER-->
           <div class="page-container">
             <!-- HEADER DESKTOP-->
@@ -119,12 +106,12 @@ include 'config.php';
                 <div class="container-fluid">
                 <div class="col-md-12">
                                 <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">Transactions</h3>
+                                <h3 class="title-5 m-b-35">Denied Transactions</h3>
                                 <div class="table-responsive table-responsive-data2">
                                     <table class="table table-data2">
                                         <thead>
-                                            <tr>
-                                            <th>Start Date</th>
+                                        <tr>
+                                                <th>Start Date</th>
                                                 <th>End Date</th>
                                                 <th>Date Returned</th>
                                                 <th>Equipment Name</th>
@@ -144,7 +131,7 @@ include 'config.php';
                                                                 }
                                                                 $calc = $perpage * $page;
                                                                 $start = $calc - $perpage;
-                                                                $sql = "SELECT transaction_id, start_date,end_date,date_returned,status,equipment_name,equipment_price FROM transaction join equipment on transaction.equipment_id=equipment.equipment_id where status = 'denied'";
+                                                                $sql = "SELECT transaction_id, start_date,end_date,date_returned,status,equipment_name,equipment_price,quantity_rented FROM transaction join equipment on transaction.equipment_id=equipment.equipment_id where status = 'denied'";
                                                                 $result = mysqli_query($con,$sql);
                                                                 
                                                                 $rows = mysqli_num_rows($result);
@@ -159,7 +146,9 @@ include 'config.php';
                                                                         <td>'.$row["date_returned"].'</td>
                                                                         <td>'.$row["equipment_name"].'</td>
                                                                         <td>'.$row["equipment_price"].'</td>
-                                                                        <td>'.$row["status"].'</td>
+                                                                        <td>'.$row["quantity_rented"].'</td>
+                                                                        <td>'.'<span class="status--denied">' .$row["status"].'</td>
+                                                                        <td>'.'<a href=\'acceptd-transaction.php?accept_id=' .$row['transaction_id'].'\'><span>Move to Ongoing</span></a>'.'</td>
                                                                         </tr>
                                                                         ';
                                                                     }

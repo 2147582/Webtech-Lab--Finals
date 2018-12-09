@@ -84,19 +84,7 @@ include 'config.php';
                                     <a href="dtransaction.php">Denied Transactions</a>
                                 </li>
                     </ul>
-                    </li>
-                    <li>
-                    <a class="js-arrow" href="#">                                
-                            <i class="far fa-check-square"></i>User Management</a>
-                           <ul class="list-unstyled navbar__sub-list js-sub-list">
-                         <li>
-                            <a href="products.php">Registered Accounts</a>
-                        </li>
-                        <li>
-                            <a href="Add.php">Disabled Accounts</a>
-                        </li>
-                    </ul>
-                        
+                    </li>   
                         </ul>
                     </nav>
                 </div>
@@ -114,12 +102,13 @@ include 'config.php';
             <!-- HEADER DESKTOP-->
 
             <!-- MAIN CONTENT-->
+            <form method="post">
             <div class="main-content">
               <div class="section__content section__content--p30">
                 <div class="container-fluid">
                 <div class="col-md-12">
                                 <!-- DATA TABLE -->
-                                <h3 class="title-5 m-b-35">Transactions</h3>
+                                <h3 class="title-5 m-b-35"> Pending Transactions</h3>
                                 <div class="table-responsive table-responsive-data2">
                                     <table class="table table-data2">
                                         <thead>
@@ -157,13 +146,18 @@ include 'config.php';
                                                                         <td>'.$row["end_date"].'</td>
                                                                         <td>'.$row["date_returned"].'</td>
                                                                         <td>'.$row["equipment_name"].'</td>
-                                                                        <td>'.$row["quantity_rented"].'</td>
                                                                         <td>'.$row["equipment_price"].'</td>
+                                                                        <td>'.$row["quantity_rented"].'</td>
                                                                         <td>'.$row["status"].'</td>
-                                                                        <td>'.'<button type="submit" name="accept" id="accept" class="btn btn-success btn-flat">Accept</button>'.'</td>
-                                                                        <td>'.'<button type="submit" name="deny" id="deny" class="btn btn-danger btn-flat">Deny</button>'.'</td>
+                                                                        <td>'.'<a href=\'acceptp-transaction.php?accept_id=' .$row['transaction_id'].'\'><span class="status--accept">Accept</span></a>'.'</td>
+                                                                        <td>'.'<a href=\'denyp-transaction.php?deny_id=' .$row['transaction_id'].'\'><span class="status--denied">Deny</span></a>'.'</td>
                                                                         </tr>
                                                                         ';
+                                                                        
+                                
+
+
+                                                      
                                                                     }
                                                                 }
                                                                 ?>
@@ -172,6 +166,7 @@ include 'config.php';
                                                         
                                     </table>
                                 </div>
+                                </form>
                                 <!-- END DATA TABLE -->
                             </div>
                 </div>

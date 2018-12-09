@@ -84,19 +84,7 @@ include 'config.php';
                                     <a href="dtransaction.php">Denied Transactions</a>
                                 </li>
                     </ul>
-                    </li>
-                    <li>
-                    <a class="js-arrow" href="#">                                
-                            <i class="far fa-check-square"></i>User Management</a>
-                           <ul class="list-unstyled navbar__sub-list js-sub-list">
-                         <li>
-                            <a href="products.php">Registered Accounts</a>
-                        </li>
-                        <li>
-                            <a href="Add.php">Disabled Accounts</a>
-                        </li>
-                    </ul>
-                        
+                    </li>   
                         </ul>
                     </nav>
                 </div>
@@ -123,12 +111,15 @@ include 'config.php';
                                 <div class="table-responsive table-responsive-data2">
                                     <table class="table table-data2">
                                         <thead>
-                                            <tr>
-                                                <th>Date Rented</th>
+                                        <tr>
+                                                <th>Start Date</th>
+                                                <th>End Date</th>
                                                 <th>Date Returned</th>
                                                 <th>Equipment Name</th>
+                                                <th>Quantity Rented</th>
                                                 <th>Price</th>
                                                 <th>Status</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -141,7 +132,7 @@ include 'config.php';
                                                                 }
                                                                 $calc = $perpage * $page;
                                                                 $start = $calc - $perpage;
-                                                                $sql = "SELECT transaction_id, start_date,end_date,date_returned,status,equipment_name,equipment_price FROM transaction join equipment on transaction.equipment_id=equipment.equipment_id where status = 'completed'";
+                                                                $sql = "SELECT transaction_id, start_date,end_date,date_returned,status,equipment_name,equipment_price,quantity_rented FROM transaction join equipment on transaction.equipment_id=equipment.equipment_id where status = 'completed'";
                                                                 $result = mysqli_query($con,$sql);
                                                                 
                                                                 $rows = mysqli_num_rows($result);
@@ -155,8 +146,11 @@ include 'config.php';
                                                                         <td>'.$row["date_returned"].'</td>
                                                                         <td>'.$row["equipment_name"].'</td>
                                                                         <td>'.$row["equipment_price"].'</td>
-                                                                        <td>'.$row["status"].'</td>
+                                                                        <td>'.$row["quantity_rented"].'</td>
+                                                                        <td>'.'<span class="status--process">' .$row["status"].'</td>
                                                                         </tr>
+
+
                                                                         ';
                                                                     }
                                                                 }

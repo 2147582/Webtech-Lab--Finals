@@ -1,5 +1,4 @@
 
-
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.SQLException" %>
 <%@ page import="java.sql.Statement" %>
@@ -46,15 +45,10 @@
 <body>
 
 <%
-
     String keyword = "";
-
     if(request.getParameter("txtKeyword") != null) {
-
     keyword = request.getParameter("txtKeyword");
-
     }
-
 %>
 
  
@@ -63,9 +57,9 @@
         <table id="key_word" width="599" border="1">
 
             <tr>
-
+           
                 <th>
-
+                 <a href='index.jsp'>Go back</a>
                 <input name="txtKeyword" type="text" id="txtKeyword" value="<%=keyword%>">
 
                 <input type="submit" value="Search"></th>
@@ -79,36 +73,21 @@
  
 
     <%
-
     Connection connect = null;
     Statement s = null;
-
         try {
-
             Class.forName("com.mysql.jdbc.Driver");
-
             connect =  DriverManager.getConnection("jdbc:mysql://localhost/weblab" +
-
             "?user=root&password=");
-
             s = connect.createStatement();
-
-
-            String sql = "SELECT * FROM  equipment WHERE equipment_name like '%" +  keyword + "%' or category like '%" +  keyword + "%'";
-
-
+            String sql = "SELECT * FROM  equipment JOIN quantity USING(equipment_id) WHERE equipment_name like '%" +  keyword + "%' or category like '%" +  keyword + "%' or equipment_desc like '%" +  keyword + "%' or equipment_code like '%" +  keyword + "%' or equipment_price like '%" +  keyword + "%'";
             System.out.println(sql);
-
-
             ResultSet rec = s.executeQuery(sql);
-
             %>
 
             <table id="search" width="600" border="1">
 
                 <tr>
-
-                    <th width="91"> <div align="center">Equipment ID</div></th>
 
                     <th width="98"> <div align="center">Equipment Code</div></th>
 
@@ -122,7 +101,9 @@
                     
                     <th width ="71"> <div align="center">Equipment Category</div></th>
                     
-                    <th width ="200"> <div align="center">Date Added</div></th>
+                    <th width ="71"><div align="center">Equipment Quantity</div></th>
+                    
+                    <th width ="71"> <div align="center">Action</div></th>
 
                 </tr>    
 
@@ -130,7 +111,6 @@
 
                         <tr>
 
-                            <td><div align="center"><%=rec.getString("equipment_id")%></div></td>
 
                             <td><%=rec.getString("equipment_code")%></td>
 
@@ -138,14 +118,21 @@
 
                             <td><div align="center"><%=rec.getString("equipment_desc")%></div></td>
 
-                            <td align="right"><%=rec.getString("equipment_pic")%></td>
+                          <td><img src="stored/<%=rec.getString("equipment_pic")%>"</td>
 
                             <td align="right"><%=rec.getString("equipment_price")%></td>
                             
                             <td align="right"><%=rec.getString("category")%></td>
                             
-                            <td align="right"><%=rec.getString("added_date")%></td>
-
+                            <td align="right"><%=rec.getString("quantity")%></td>
+                            
+                            
+		    <td align="right">
+       
+			
+                        <a href='addTrans.jsp'?u=<%=rec.getString("equipment_id")%>>Purchase</a>
+						
+                    </td>
                         </tr>
 
                     <%}%>
@@ -153,39 +140,21 @@
             </table>     
 
             <%  
-
         } catch (Exception e) {
-
             // TODO Auto-generated catch block
-
             out.println(e.getMessage());
-
             e.printStackTrace();
-
             }
-
-
-
         try {
-
             if(s!=null){
-
             s.close();
-
             connect.close();
-
             }
-
         } catch (SQLException e) {
-
             // TODO Auto-generated catch block  
-
             out.println(e.getMessage());
-
             e.printStackTrace();
-
         }
-
     %>
 
 </body>

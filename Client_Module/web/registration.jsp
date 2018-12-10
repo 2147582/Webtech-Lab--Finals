@@ -26,7 +26,7 @@ User Interface for registration.
         <div class="container">
             <h3 class="display-4">Register an Account</h3>
         
-            <form action="action.jsp" method="GET">
+            <form action="action.jsp" method="POST">
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="fname">First Name</label>
@@ -44,14 +44,15 @@ User Interface for registration.
                       <input type="text" class="form-control" name ="Uname" placeholder="Username" required/>
                     </div>
                     <div class="form-group col-md-4">
-                      <label for="inputPassword4">Email</label>
-                      <input type="text" class="form-control" name="email" placeholder="Email Address" required/>
-                    </div>
-                    <div class="form-group col-md-4">
                       <label for="inputPassword4"> Password</label>
                       <input type="password" class="form-control" name = "psw" id="inputPassword4" placeholder="Password" required/>
                     </div>
                   </div>
+                <br>
+                <label for ="identity"> Are you A? </label>
+                <br>
+                <input type="radio" name="role" value="client" > Client <br>
+                <input type="radio" name="role" value="admin"> Admin <br>
                   <button type="submit" class="btn btn-primary" value="clientAccount">Create an Account</button>
             </form>
         </div>    

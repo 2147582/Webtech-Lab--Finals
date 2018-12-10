@@ -19,23 +19,23 @@ A java servlet page that stores the the data inputed by the users to the databas
     <body>     
      
      <%  
-          
-            try{
             String fname = request.getParameter("fname").toString();
             String Lname = request.getParameter("Lname").toString();
             String Uname = request.getParameter("Uname").toString();
-            String email = request.getParameter("email").toString();
             String pass = request.getParameter("psw").toString();
+            String role = request.getParameter("role").toString();
+            try{
+            
             
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/weblab","root",""); 
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/weblab2","root",""); 
             Statement stat = null; 
             
             
                 stat = conn.createStatement();
                 String data; 
                 
-                data = "INSERT INTO users (first_Name,last_Name,user_Name,email_address,password)VALUES ('"+fname+"','"+Lname+"','"+Uname+"','"+email+"','"+pass+"')";
+                data = "INSERT INTO users (first_Name,last_Name,user_Name,password,role)VALUES ('"+fname+"','"+Lname+"','"+Uname+"','"+pass+"','"+role+"')";
                 
                 stat.executeUpdate(data);
                 

@@ -19,25 +19,46 @@ determine if the user have already registered.
         <title>Log In</title>
     </head>
     <body>
+        
+        <div style="float:right;">
         <%
         
         String uname = request.getParameter("Uname");
         String pass = request.getParameter("psw");   
+        
+        String username = "";
+        String password = "";
+        String role = "";
         String query;
        Class.forName("com.mysql.jdbc.Driver").newInstance();
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/weblab","root","");
-            query = "SELECT * FROM users WHERE user_Name = '"+uname+"' AND password = '"+pass+"' ";
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/weblab2","root","");
+            query = "SELECT user_name,password,role FROM users WHERE user_name = '"+uname+"' AND password = '"+pass+"' ";
             
             PreparedStatement os = conn.prepareStatement(query);
             ResultSet rs = os.executeQuery();
             
-            if(rs.next()){
-                out.println("Welcome" + " " + uname);
-                response.sendRedirect("index.jsp");
-            }else{
-                out.println("Please register first!");
-            }
+           while(rs.next()){
+               // out.println("Welcome" + " " + uname);
+               username = rs.getString("user_name");
+               password = rs.getString("password");
+               role = rs.getString("role");
+               
+               if(role.equalsIgnoreCase("admin")){
+                   String adminRedirect = "http://localhost/COYCOY/adminsystem/admin/";
+                   response.sendRedirect(adminRedirect);
+               }else if(role.equalsIgnoreCase("client")){
+                  // String clientRedirect = "";
+                  // response.sendRedirect(clientRedirect);
+               }else if (username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin")){
+                   String superadminRedirect = "http://localhost/COYCOY/adminsystem/superadmin/";
+                   response.sendRedirect(superadminRedirect);
+               }else{
+               out.println("Please register first");
+               
+               }
+           }
         
         %>
+        </div>
     </body>
 </html>

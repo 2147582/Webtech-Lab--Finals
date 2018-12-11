@@ -1,10 +1,3 @@
-<%-- 
-    Document   : action
-    Created on : 12 3, 18, 10:56:30 PM
-    Author     : Michael Jericho Dariano
-
-A java servlet page that stores the the data inputed by the users to the database.
---%>
 <%@ page import ="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -19,13 +12,11 @@ A java servlet page that stores the the data inputed by the users to the databas
     <body>     
      
      <%  
-          
+            String q = request.getParameter("q").toString();
+            String id = request.getParameter("id").toString();
+            String ui = request.getParameter("ui").toString();
             try{
-            String fname = request.getParameter("fname").toString();
-            String Lname = request.getParameter("Lname").toString();
-            String Uname = request.getParameter("Uname").toString();
-            String email = request.getParameter("email").toString();
-            String pass = request.getParameter("psw").toString();
+            
             
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/weblab","root",""); 
@@ -35,7 +26,7 @@ A java servlet page that stores the the data inputed by the users to the databas
                 stat = conn.createStatement();
                 String data; 
                 
-                data = "INSERT INTO users (first_Name,last_Name,user_Name,email_address,password)VALUES ('"+fname+"','"+Lname+"','"+Uname+"','"+email+"','"+pass+"')";
+                data = "INSERT INTO transaction (quantity_rented ,equipment_id ,user_id)VALUES ('"+q+"','"+id+"','"+ui+"')";
                 
                 stat.executeUpdate(data);
                 

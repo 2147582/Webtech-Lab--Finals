@@ -1,10 +1,9 @@
-<%-- 
+<%--
     Document   : index.html
     Created on : 12 8, 18, 9:16:13 PM
     Author     : ACER
 --%>
-<%-- @ page import="java.util.*"
---%>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -50,7 +49,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="registration.jsp">Sign up</a>
               </li>
-                  
+              
+                  <li>  </li>.
+          
             </ul>
         </div>
 
@@ -139,8 +140,8 @@
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body" style="padding:40px 50px;">
-              
-              
+
+
             <form role="form" action="validation.jsp">
               <div class="form-group">
                 <label for="username"><span class="glyphicon glyphicon-user"></span> Username</label>
@@ -197,4 +198,3 @@
 
   </body>
 </html>
-
